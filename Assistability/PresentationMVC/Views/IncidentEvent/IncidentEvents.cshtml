@@ -1,0 +1,57 @@
+﻿@model IEnumerable<DataStorageModels.IncidentEvent>
+
+@{
+    ViewBag.Title = "IncidentEvents";
+}
+
+<h2>IncidentEvents</h2>
+
+<p>
+    @Html.ActionLink("Create New Incident Event", "Create", "IncidentEvent" , new { ViewBag.IncidentName } ,null)
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfOccurence)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonsInvolved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventConsequence)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfOccurence)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonsInvolved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventConsequence)
+        </td>
+        <td>
+            @Html.ActionLink("Delete Incident Event", "Delete", "IncidentEvent", new { item.IncidentEventID }, null)
+        </td>
+    </tr>
+}
+
+</table>
+<p>@Html.ActionLink("Back to Incidents","Incidents","Incident")</p>

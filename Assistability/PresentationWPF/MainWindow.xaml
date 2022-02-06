@@ -1,0 +1,55 @@
+﻿<Window x:Class="PresentationWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PresentationWPF"
+        mc:Ignorable="d"
+        Title="Assisstability"
+        WindowStartupLocation="CenterScreen"
+        Height="700" Width="1000" Loaded="Window_Loaded" Icon="/images/favicon.ico">
+
+    <Window.Resources>
+        <CollectionViewSource x:Key="CaregiverList" 
+                              Source="{Binding Source={x:Static Application.Current}, Path=_caregiverList}">
+
+        </CollectionViewSource>
+    </Window.Resources>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/images/background-image-swoosh.png"  Stretch="Fill"/>
+        </Grid.Background>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20px"></RowDefinition>
+            <RowDefinition Height="20px"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100px"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition Width="70px"></ColumnDefinition>
+            <ColumnDefinition Width="190px"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Menu x:Name="mnuMain" Grid.Column="0" Width="Auto">
+            <MenuItem x:Name="mnuMainItemAccount" Header="Account">
+                <MenuItem x:Name="mnuAccountOptions" Header="Manage My Account" Click="mnuAccountOptions_Click" ></MenuItem>
+                <MenuItem x:Name="mnuAccountLogoffReturnToLogin" Header="Logout" Click="mnuAccountLogoffReturnToLogin_Click"></MenuItem>
+                <MenuItem x:Name="mnuAccountLogOff" Header="Quit Program" Click="mnuAccountLogOff_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="mnuMainItemHelp" Header="Help"></MenuItem>
+        </Menu>
+        <Button x:Name="btnViewUserDashboard" Grid.Column="2" Grid.RowSpan="2" Click="btnViewUserDashboard_Click" Panel.ZIndex="2">Dashboard</Button>
+        <TextBox x:Name="txtUsername" Grid.Column="3" Grid.RowSpan="2"
+                 Width="190px" HorizontalContentAlignment="Center"
+                 VerticalContentAlignment="Center" Panel.ZIndex="2">Username</TextBox >
+        <Frame x:Name="frmMainFrame" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="8"></Frame>
+        <Calendar x:Name="cdrRoutineCalendar" Grid.Row="2" Grid.Column="3" SelectionMode="SingleDate" 
+                  SelectedDatesChanged="cdrCalendar_SelectedDatesChanged" ></Calendar>
+        <Label x:Name="lblCalendarLabel" Grid.Row="2" Grid.Column="3" Margin="0 175 0 0" 
+               HorizontalContentAlignment="Center" Content="Select a Date to view Routines" ></Label>
+        <Label x:Name="lblDateLabel" Grid.Row="2" Grid.Column="3" Margin="0 190 0 0" HorizontalContentAlignment="Center" ></Label>
+        <TextBox x:Name="txtTodaysRoutines" Grid.Row="2" Grid.Column="3" Margin="0 220 0 0" 
+                 HorizontalContentAlignment="Center" BorderBrush="White" ></TextBox>
+    </Grid>
+</Window>

@@ -1,0 +1,71 @@
+﻿@model DataStorageModels.IncidentEvent
+
+@{
+    ViewBag.Title = "Create";
+    string incidentName = string.Format(ViewBag.IncidentName);
+    
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm("AddNewIncidentEvent", "IncidentEvent", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal" style="display:inline-block">
+    <h4>IncidentEvent</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IncidentName, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 20%" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.IncidentName, new { htmlAttributes = new { @class = "control-label col-md-2  ", @readonly = "readonly", @Value = incidentName, @style = "width: 50%; text-align: center" } })
+            @Html.ValidationMessageFor(model => model.IncidentName,  "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.DateOfOccurence, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 20%" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DateOfOccurence, new { htmlAttributes = new { @class = "control-label col-md-2  ", @type = "date", @style = "width: 60%; text-align: center" } })
+            @Html.ValidationMessageFor(model => model.DateOfOccurence, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PersonsInvolved, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 20%" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PersonsInvolved, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PersonsInvolved, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EventDescription, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 20%" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.EventDescription, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.EventDescription, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EventConsequence, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 20%" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.EventConsequence, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.EventConsequence, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to Incident Events", "Incidents", "Incident")
+</div>
+

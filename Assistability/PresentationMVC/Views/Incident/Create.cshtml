@@ -1,0 +1,54 @@
+﻿@model DataStorageModels.Incident
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create an Incident</h2>
+
+@using (Html.BeginForm("AddNewIncident", "Incident", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" style="display:inline-block;"> 
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.IncidentName, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 20%" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IncidentName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IncidentName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IncidentDescription, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 20%" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IncidentDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IncidentDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DesiredConsequence, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 20%" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DesiredConsequence, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DesiredConsequence, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to incident list", "Incidents")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,96 @@
+﻿/*
+/// <remarks>
+/// Jory A. Wernette
+/// Updated: 2021/04/07
+/// Updated to better style index and layout side navs
+/// </remarks>
+///
+/// <remarks>
+/// Jory A. Wernette
+/// Updated: 2021/04/29
+/// Added css to make things appear over the background image
+/// and a start to responsiveness
+/// </remarks>
+*/
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+    body > * {
+        background-color: rgb(224,224,224);
+        opacity: 0.9;
+    }
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.column {
+    float: left;
+    padding: 10px;
+    height: 80vh;
+}
+
+.container body-content {
+    margin: 0;
+    width: auto;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+#leftColumn {
+    float: left;
+}
+
+#clientListDiv {
+    height: 45%;
+}
+
+#caregiverListDiv {
+    height: 45%;
+}
+
+#rightColumn {
+    float: right;
+    position: relative;
+}
+
+#calendar {
+    height: 45%;
+}
+
+#routineCalendarDiv {
+    height: 45%;
+}
+
+@media only screen and (max-width: 1000px) {
+    #rightColumn {
+        z-index: 10;
+    }
+
+        #rightColumn > * {
+            z-index: 15;
+        }
+
+    #rightColumn {
+        float: none;
+    }
+}

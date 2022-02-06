@@ -1,0 +1,119 @@
+﻿@model DataViewModels.AttGoalViewModel
+
+@{
+    ViewBag.Title = Model.AttGoalName + " Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Attainment Goal Details</h4>
+    <hr />
+    <dl class="dl-horizontal" style="display:inline-block">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserID_client)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserID_client)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserID_admin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserID_admin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AttGoalName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttGoalName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AttGoalDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttGoalDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AttGoalTargetDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttGoalTargetDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AttGoalEntryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttGoalEntryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AttGoalEditDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttGoalEditDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AttGoalRemovalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttGoalRemovalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PerformanceFrequency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PerformanceFrequency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AwardName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AwardName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PerformanceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PerformanceName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit Goal", "EditAttGoal", new { selectedID = Model.UserID_client, attGoalName = Model.AttGoalName, entryDate = Model.AttGoalEntryDate }) &nbsp;|&nbsp;
+    @Html.ActionLink("View active Attainment Goals", "ViewActiveAttGoal") &nbsp;|&nbsp;
+    @Html.ActionLink("View all Attainment Goals", "ViewAttGoal") &nbsp;|&nbsp;
+    @Html.ActionLink("Return to Goals", "Goals")
+</p>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,119 @@
+﻿@model DataViewModels.ExtGoalViewModel
+
+@{
+    ViewBag.Title = Model.ExtGoalName + " Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Extinction Goal Details</h4>
+    <hr />
+    <dl class="dl-horizontal" style="display:inline-block">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserID_client)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserID_client)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserID_admin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserID_admin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExtGoalName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExtGoalName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExtGoalDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExtGoalDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExtGoalTargetDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExtGoalTargetDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExtGoalEntryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExtGoalEntryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExtGoalEditDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExtGoalEditDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExtGoalRemovalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExtGoalRemovalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentFrequency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentFrequency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AwardName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AwardName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit Goal", "EditExtGoal", new { selectedID = Model.UserID_client, extGoalName = Model.ExtGoalName, entryDate = Model.ExtGoalEntryDate }) &nbsp;|&nbsp;
+    @Html.ActionLink("View active Extinction Goals", "ViewActiveExtGoal") &nbsp;|&nbsp;
+    @Html.ActionLink("View all Extinction Goals", "ViewExtGoal") &nbsp;|&nbsp;
+    @Html.ActionLink("Return to Goals", "Goals")
+</p>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

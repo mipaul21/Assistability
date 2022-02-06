@@ -1,0 +1,55 @@
+﻿@model DataViewModels.RoutineVM
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IEnumerable<int> completedStepIds = ViewBag.CompletedStepIds;
+}
+    <h2>Let's do @Html.DisplayFor(model => model.Name)!</h2>
+    <body>
+        @if (Model.Steps.Count > 0)
+        {
+            <table class="table">
+
+                @foreach (var item in Model.Steps)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoutineStepOrderNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoutineStepName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoutineStepDescription)
+                    </td>
+                    <td>
+                        @if (!completedStepIds.Contains(item.RoutineStepID))
+                        {
+                            using (Html.BeginForm("CompleteStep", "Routine", null, FormMethod.Post, new { role = "form" }))
+                            {
+                                <input type="submit" class="btn btn-primary" value="Complete" />
+                                <input type="hidden" value=@item.RoutineName name="routineName" />
+                                <input type="hidden" value=@item.RoutineStepID name="stepId" />
+                            }
+                        }
+                        else
+                        {
+                            <h4>Done</h4>
+                        }
+                    </td>
+                </tr>
+                }
+
+            </table>
+        }
+        else
+        {
+            <p>This Routine doesn't have any steps!</p>
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+        }
+        <p>
+            @Html.ActionLink("Back to Routines", "Index")
+        </p>
+    </body>

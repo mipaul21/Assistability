@@ -1,0 +1,64 @@
+﻿@model DataStorageModels.IncidentEvent
+
+
+<h2>Delete Incident Event</h2>
+
+<h3 style="color: red">Are you sure you want to delete this Incident Event? It will be lost FOREVER.</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal" style="display:inline-block">
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfOccurence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfOccurence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonsInvolved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonsInvolved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventConsequence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventConsequence)
+        </dd>
+
+
+
+    </dl>
+
+    @using (Html.BeginForm("DeleteIncidentEvent", "IncidentEvent", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.HiddenFor(m => m.IncidentEventID)
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to Incident List", "Incidents","Incident", null, null)
+        </div>
+    }
+</div>

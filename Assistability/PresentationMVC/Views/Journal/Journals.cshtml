@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DataStorageModels.Journal>
+
+@{
+    ViewBag.Title = "Journals";
+}
+
+<h2>Journals</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.JournalName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JournalDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.JournalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JournalDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Entries", "JournalEntries", new { userIDClient = item.UserID_Client, journalName = item.JournalName }) |
+            @Html.ActionLink("Edit", "Update", new { journalName = item.JournalName, userIDClient = item.UserID_Client }) |
+            @Html.ActionLink("Delete", "Delete", new { journalName = item.JournalName })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<DataStorageModels.Performance>
+
+@{
+    ViewBag.Title = ViewBag.User.FirstName + " " + " " + ViewBag.User.LastName + "'s Performances";
+}
+<h2>@ViewBag.Title</h2>
+<h4>@Html.ActionLink("Create A Performance", "Create", new { SelectedId = ViewBag.User.UserAccountID }) &nbsp;|&nbsp; @Html.ActionLink("Edit Performances", "EditablePerformances", new { SelectedId = ViewBag.User.UserAccountID })</h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PerformanceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PerformanceDescription)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerformanceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerformanceDescription)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new
+                {
+                    performanceName = item.PerformanceName
+               ,
+                    clientId = item.UserID_client
+                }) |
+                @Html.ActionLink("Performance Events", "PerformanceEvents", new { Name = item.PerformanceName, SelectedId = item.UserID_client })
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    @{
+        if (ViewBag.Active)
+        {
+            @Html.ActionLink("Not Active", "PerformancesByActive", new
+            {
+           selectedUserId = ViewBag.User.UserAccountID,
+                activeInactive = !ViewBag.Active
+            })
+        }
+        else
+        {
+            @Html.ActionLink("Active", "PerformancesByActive", new
+            {
+           selectedUserId = ViewBag.User.UserAccountID,
+                activeInactive = !ViewBag.Active
+            })
+        }
+    }
+</p>

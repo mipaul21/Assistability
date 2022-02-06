@@ -1,0 +1,129 @@
+﻿@model DataViewModels.HabGoalViewModel
+
+@{
+    ViewBag.Title = "Edit" + Model.HabGoalName;
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("UpdateHabGoal", "Goal", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" style="display:inline-block" >
+        <h4>Edit Habitual Goal</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group" style="display:none;">
+            @Html.LabelFor(model => model.UserID_client, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 40%; text-align:left" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserID_client, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserID_client, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;">
+            @Html.LabelFor(model => model.UserID_admin, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 40%; text-align:left" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserID_admin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserID_admin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HabGoalName, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 40%; text-align:left" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HabGoalName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.HabGoalName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HabGoalDescription, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 40%; text-align:left" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HabGoalDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HabGoalDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HabGoalTargetDate, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 50%; text-align:left" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HabGoalTargetDate, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.HabGoalTargetDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HabGoalEntryDate, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 40%; text-align:left" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HabGoalEntryDate, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;">
+            @Html.LabelFor(model => model.HabGoalEditDate, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 40%; text-align:left" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HabGoalEditDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HabGoalEditDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;">
+            @Html.LabelFor(model => model.HabGoalRemovalDate, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 40%; text-align:left" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HabGoalRemovalDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HabGoalRemovalDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RoutineFrequency, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 40%; text-align:left" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RoutineFrequency, new { htmlAttributes = new { @class = "form-control", @type="number" } })
+                @Html.ValidationMessageFor(model => model.RoutineFrequency, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 40%; text-align:left" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Active, new { htmlAttributes = new { @style = "margin-left: 5%" } })
+                    @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AwardName, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 40%; text-align:left" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.AwardName, new SelectList(ViewBag.AwardNamesList, ViewBag.CurrentAwardName), new { htmlAttributes = new { @class = "form-control", @id = "dropdowns" } })
+                @Html.ValidationMessageFor(model => model.AwardName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RoutineName, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 40%; text-align:left" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RoutineName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.RoutineName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("View active Habitual Goals", "ViewActiveHabGoals") &nbsp;|&nbsp;
+    @Html.ActionLink("View all Habitual Goals", "ViewHabGoals") &nbsp;|&nbsp;
+    @Html.ActionLink("Return to Goals", "Goals")
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

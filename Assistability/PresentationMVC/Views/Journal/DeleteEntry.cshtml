@@ -1,0 +1,48 @@
+﻿@model DataStorageModels.JournalEntry
+
+@{
+    ViewBag.Title = "Delete Entry?";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal" style="display:inline-block">
+        <dt>
+            @Html.DisplayNameFor(model => model.JournalID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JournalID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JournalEntryBody)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JournalEntryBody)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm("DeleteJournalEntry", "Journal", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("delete", true)
+        @Html.Hidden("journalName", Model.JournalID)
+        @Html.Hidden("body", Model.JournalEntryBody)
+        @Html.Hidden("dateCreated", Model.JournalEntryDate)
+        <input type="submit" value="yes" class="btn btn-default" />
+    }
+    @using (Html.BeginForm("DeleteJournalEntry", "Journal", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("delete", false)
+        @Html.Hidden("journalName", Model.JournalID)
+        @Html.Hidden("body", Model.JournalEntryBody)
+        @Html.Hidden("dateCreated", Model.JournalEntryDate)
+        <input type="submit" value="no" class="btn btn-default" />
+    }
+</div>

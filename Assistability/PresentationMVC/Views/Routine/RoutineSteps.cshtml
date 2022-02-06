@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DataStorageModels.RoutineStep>
+
+@{
+    ViewBag.Title = "RoutineSteps";
+}
+
+<h2>@ViewBag.Routine.Name</h2>
+<h3>@ViewBag.Routine.Description</h3>
+
+<p>
+    @Html.ActionLink("Add New Routine Step", "CreateRoutineStep", new { Name = ViewBag.Routine.Name })
+</p>
+<table class="table" style="width: 89%;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RoutineStepOrderNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoutineStepName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoutineStepDescription)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoutineStepOrderNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoutineStepName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoutineStepDescription)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Return To Routines", "Routines")
+</p>

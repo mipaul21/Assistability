@@ -1,0 +1,119 @@
+﻿@model DataViewModels.HabGoalViewModel
+
+@{
+    ViewBag.Title ="Goal Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Habitual Goal Details</h4>
+    <hr />
+    <dl class="dl-horizontal" style="display:inline-block">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserID_client)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserID_client)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserID_admin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserID_admin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HabGoalName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HabGoalName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HabGoalDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HabGoalDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HabGoalTargetDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HabGoalTargetDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HabGoalEntryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HabGoalEntryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HabGoalEditDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HabGoalEditDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HabGoalRemovalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HabGoalRemovalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoutineFrequency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoutineFrequency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AwardName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AwardName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoutineName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoutineName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit Goal", "EditHabGoal", new { selectedID = Model.UserID_client, habGoalName = Model.HabGoalName, entryDate = Model.HabGoalEntryDate }) &nbsp;|&nbsp;
+    @Html.ActionLink("View active Habitual Goals", "ViewActiveHabGoals") &nbsp;|&nbsp;
+    @Html.ActionLink("View all Habitual Goals", "ViewHabGoals") &nbsp;|&nbsp;
+    @Html.ActionLink("Return to Goals", "Goals")
+</p>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

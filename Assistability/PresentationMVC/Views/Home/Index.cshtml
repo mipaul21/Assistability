@@ -1,0 +1,37 @@
+﻿@model DataStorageModels.UserAccount
+
+@{
+    ViewBag.Title = "Home Page";
+}
+@Html.Action("GroupMemberList", "GroupMemberList")
+
+
+<div class="row">
+    <div>
+        <h1>Welcome back!</h1>
+    </div>
+    
+    @*<img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" alt="User Account Image"
+        style="width: 200px;" />*@
+
+    <div class="btn-group" role="group" aria-label="Routine Options" style="display:inline-block; width:30%; margin-left:1%">
+        <button type="button" class="btn btn-secondary">@Html.ActionLink("Complete My Routines", "Index", "Routine")</button>
+        <button type="button" class="btn btn-secondary">@Html.ActionLink("Manage My Routine", "Routines", "Routine")</button>
+    </div>
+
+    <div class="btn-group" role="group" aria-label="Incident and Performances" style="display:inline-block; width:30%">
+        <button type="button" class="btn btn-secondary">@Html.ActionLink("Manage Incidents", "Incidents", "Incident")</button>
+        <button type="button" class="btn btn-secondary">@Html.ActionLink("Manage Performances", "Performances", "Performance")</button>
+    </div>
+
+    <div class="btn-group" role="group" aria-label="Goals and Awards and Rewards" style="display:inline-block; width:20%">
+
+        <button type="button" class="btn btn-secondary">@Html.ActionLink("Manage Goals", "Goals", "Goal")</button>
+        <button type="button" class="btn btn-secondary">@Html.ActionLink("My Awards", "Awards", "Award")</button>
+    </div>
+
+    <div class="btn-group" role="group" aria-label="Journals">
+        <button type="button" class="btn btn-secondary" onclick="loadJournalsPage()">@Html.ActionLink("My Journals", "Journals", "Journal")</button>
+    </div>
+
+</div>

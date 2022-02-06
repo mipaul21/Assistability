@@ -1,0 +1,57 @@
+﻿@model IEnumerable<DataStorageModels.JournalEntry>
+
+@{
+    ViewBag.Title = "Journal Entries";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateEntry", new { journalID = ViewBag.Journal.JournalName })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.JournalID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JournalEntryBody)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JournalEntryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JournalEditDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JournalID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JournalEntryBody)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JournalEntryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JournalEditDate)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "EntryDetails", new
+                {
+                    journalName = item.JournalID,
+                body = item.JournalEntryBody,
+                    dateCreated = item.JournalEntryDate
+                })
+            </td>
+        </tr>
+    }
+</table>
+<div>
+    @Html.ActionLink("Back to Journals", "Journals")
+</div>

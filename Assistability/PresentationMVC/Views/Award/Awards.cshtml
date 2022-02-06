@@ -1,0 +1,53 @@
+﻿@model IEnumerable<DataStorageModels.Award>
+
+@{
+    ViewBag.Title = "Awards";
+}
+
+<h2>Awards</h2>
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+<table class="table" style="display: block; width: 90%;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AwardName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AwardDescription)
+        </th>
+        @if (User.IsInRole("Admin"))
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+        }
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwardName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwardDescription)
+            </td>
+            @if (User.IsInRole("Admin"))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+            }
+            <td>
+                @Html.ActionLink("Edit | Delete", "Edit", new { awardName = item.AwardName })
+            </td>
+        </tr>
+    }
+
+</table>

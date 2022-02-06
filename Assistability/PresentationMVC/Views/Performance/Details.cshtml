@@ -1,0 +1,57 @@
+﻿@model DataStorageModels.Performance
+
+@{
+    ViewBag.Title = Model.PerformanceName+" Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Performance</h4>
+    <hr />
+    <dl class="dl-horizontal" style="display:inline-block">
+        <dt style="width: 170px;">
+            @Html.DisplayNameFor(model => model.PerformanceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PerformanceName)
+        </dd>
+
+        <dt style="width: 170px;">
+            @Html.DisplayNameFor(model => model.PerformanceDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PerformanceDescription)
+        </dd>
+
+        <dt style="width: 170px;">
+            @Html.DisplayNameFor(model => model.PerformanceEntryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PerformanceEntryDate)
+        </dd>
+
+        <dt style="width: 170px;">
+            @Html.DisplayNameFor(model => model.PerformanceEditDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PerformanceEditDate)
+        </dd>
+
+        <dt style="width: 170px;">
+            @Html.DisplayNameFor(model => model.PerformanceRemovalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PerformanceRemovalDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Performances")
+</p>

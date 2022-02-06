@@ -1,0 +1,98 @@
+﻿@model IEnumerable<DataStorageModels.Incident>
+
+@{
+
+    ViewBag.Title = ViewBag.User.FirstName + " " + " " + ViewBag.User.LastName + "'s" + " " + " " + "Inactive Incidents";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table" style="width: 85%;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DesiredConsequence)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentEntryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentEditDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentRemovalDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncidentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncidentDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesiredConsequence)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncidentEntryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncidentEditDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncidentRemovalDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.ActionLink("Reactivate Incident", "Reactivate", new
+           {
+               selectedUserId = item.UserId_Client,
+               incidentName = item.IncidentName,
+               incidentDescription = item.IncidentDescription,
+               desiredConsequence = item.DesiredConsequence,
+               incidentEntryDate = item.IncidentEntryDate,
+               incidentEditDate = item.IncidentEditDate,
+               incidentRemovalDate = item.IncidentRemovalDate,
+               clientId = item.UserId_Client,
+               creatorId = item.UserId_Creator
+
+           })
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @{
+        if (ViewBag.Active)
+        {
+            @Html.ActionLink("Inactive Incidents", "IncidentsByActive", new
+            {
+                selectedUserId =
+           ViewBag.User.UserAccountID,
+                activeInactive = !ViewBag.Active
+            })
+        }
+        else
+        {
+            @Html.ActionLink("Active Incidents", "Incidents", new
+            {
+                selectedUserId =
+           ViewBag.User.UserAccountID,
+                activeInactive = !ViewBag.Active
+            })
+        }
+    }
+</p>

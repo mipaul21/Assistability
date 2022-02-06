@@ -1,0 +1,41 @@
+﻿@model IEnumerable<DataStorageModels.PerformanceEvent>
+
+@{
+    ViewBag.Title = "PerformanceEvents";
+}
+
+<h2>@ViewBag.Performance.PerformanceName Performance Events</h2>
+
+<p>
+    @Html.ActionLink("Create New Performance Event", "CreatePerformanceEvent", new { Name = ViewBag.Performance.PerformanceName, SelectedId = ViewBag.Performance.UserID_client })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EventDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventResult)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventResult)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditPerformanceEvent", new { id=item.PerformanceEventID, Name = item.PerformanceName, SelectedUserId = item.UserIDClient })
+        </td>
+    </tr>
+}
+
+</table>
+
+<p>
+    @Html.ActionLink("Back to Performances", "Performances")
+</p>

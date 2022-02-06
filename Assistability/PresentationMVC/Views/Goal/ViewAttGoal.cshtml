@@ -1,0 +1,92 @@
+﻿@model IEnumerable<DataViewModels.AttGoalViewModel>
+
+@{
+    ViewBag.Title = ViewBag.SelectedUser.FirstName + " " + ViewBag.SelectedUser.LastName + "'s Attainment Goals";
+}
+@Html.Action("GroupMemberList", "GroupMemberList")
+
+<h2>@ViewBag.Title</h2>
+
+<h4>
+    @Html.ActionLink("Create an Attainment Goal", "CreateAttGoal") &nbsp;|&nbsp;
+    @Html.ActionLink("View active Attainment Goals", "ViewActiveAttGoal") &nbsp;|&nbsp;
+    @Html.ActionLink("Return to Goals", "Goals")
+</h4>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.AttGoalName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AttGoalDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PerformanceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PerformanceFrequency)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AttGoalTargetDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AttGoalEntryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AwardName)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.AttGoalName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AttGoalDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerformanceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerformanceFrequency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AttGoalTargetDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AttGoalEntryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwardName)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "EditAttGoal", new { selectedID = item.UserID_client, attGoalName = item.AttGoalName, entryDate = item.AttGoalEntryDate }) &nbsp;|&nbsp;
+                @Html.ActionLink("Details", "GoalAttDetails", new { selectedID = item.UserID_client, attGoalName = item.AttGoalName, entryDate = item.AttGoalEntryDate }) &nbsp;|&nbsp;
+                @{
+                    if (item.Active == true)
+                    {
+                        @Html.ActionLink("Deactivate", "DeReAttGoal", new { selectedID = item.UserID_client, attGoalName = item.AttGoalName, entryDate = item.AttGoalEntryDate })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Activate", "DeReAttGoal", new { selectedID = item.UserID_client, attGoalName = item.AttGoalName, entryDate = item.AttGoalEntryDate })
+                    }
+                }
+            </td>
+        </tr>
+    }
+
+</table>

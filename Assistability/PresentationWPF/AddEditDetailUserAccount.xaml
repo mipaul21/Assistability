@@ -1,0 +1,102 @@
+﻿<Window x:Class="PresentationWPF.AddEditDetailUserAccount"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PresentationWPF"
+        mc:Ignorable="d"
+        Title="AddEditDetailUserAccount" Height="350" Width="450"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="Label" TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        </Style>
+        <Style x:Key="TextBox" TargetType="TextBox">
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="180px"></Setter>
+        </Style>
+        <Style x:Key="PasswordBox" TargetType="PasswordBox">
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="180px"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="10px"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock x:Name="tbkUserAccountName" Grid.ColumnSpan="3"
+                   FontSize="40" HorizontalAlignment="Center"
+                       VerticalAlignment="Bottom">
+            User Name
+        </TextBlock>
+        <Label x:Name="lblUserAccountUserName" Grid.Row="1"
+               Style="{StaticResource Label}">
+            Username
+        </Label>
+        <TextBox x:Name="txtUserAccountUserName" Grid.Row="1"
+                 Grid.Column="2" Style="{StaticResource TextBox}">
+            Username
+        </TextBox>
+
+        <Label x:Name="lblUserAccountFirstName" Grid.Row="2"
+               Style="{StaticResource Label}">
+            First Name
+        </Label>
+        <TextBox x:Name="txtUserAccountFirstName" Grid.Row="2"
+                 Grid.Column="2" Style="{StaticResource TextBox}">
+            First Name
+        </TextBox>
+
+        <Label x:Name="lblUserAccountLastName" Grid.Row="3"
+               Style="{StaticResource Label}">
+            Last Name
+        </Label>
+        <TextBox x:Name="txtUserAccountLastName" Grid.Row="3"
+                 Grid.Column="2" Style="{StaticResource TextBox}">
+            Last Name
+        </TextBox>
+
+        <Label x:Name="lblUserAccountEmail" Grid.Row="4"
+               Style="{StaticResource Label}">
+            Email
+        </Label>
+        <TextBox x:Name="txtUserAccountEmail" Grid.Row="4"
+                 Grid.Column="2" Style="{StaticResource TextBox}">
+            Email
+        </TextBox>
+
+        <Label x:Name="lblUserAccountPassword" Grid.Row="5"
+               Style="{StaticResource Label}">
+            Password
+        </Label>
+        <PasswordBox x:Name="pwdUserAccountPassword" Grid.Row="5"
+                 Grid.Column="2" Style="{StaticResource PasswordBox}">
+
+        </PasswordBox>
+
+        <Label x:Name="lblUserAccountActive" Grid.Row="6"
+               Style="{StaticResource Label}">
+            Currently Active
+        </Label>
+        <CheckBox x:Name="chkUserAccountActive" Grid.Row="6"
+                  Grid.Column="2" 
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Center"></CheckBox>
+    </Grid>
+</Window>

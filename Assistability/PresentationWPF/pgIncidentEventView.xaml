@@ -1,0 +1,50 @@
+﻿<Page x:Class="PresentationWPF.pgIncidentEventView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PresentationWPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="pgIncidentEventView">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="110"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="lblDescription" FontSize="25" HorizontalAlignment="Center"
+               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">My Incident</Label>
+        <Label x:Name="lblIncidenteName" FontSize="15" HorizontalAlignment="Right" 
+               VerticalAlignment="Center" Margin="10,0,10,0" Grid.Row="1" Grid.Column="0">Incident Name:</Label>
+        <TextBox x:Name="txtIncidentName" FontSize="15" Margin="10,0,10,0" Grid.Row="1" Grid.Column="1"
+                 Height="40"></TextBox>
+
+        <Label x:Name="lblIncidentDescription" FontSize="15" HorizontalAlignment="Center" 
+               VerticalAlignment="Top" Grid.Row="2" Grid.Column="0" 
+               Grid.ColumnSpan="1">Incident Description:</Label>
+        <TextBox x:Name="txtIncidentDescription" FontSize="15" Grid.Row="2" Grid.Column="0"
+                 Height="200" Margin="10,0,10,0" VerticalAlignment="bottom" Grid.ColumnSpan="1"></TextBox>
+
+        <Label x:Name="lblIncidentEvents" FontSize="15" HorizontalAlignment="Center" 
+               VerticalAlignment="Top" Grid.Row="2" Grid.Column="1" 
+               Grid.ColumnSpan="1">Related Events:</Label>
+        <DataGrid x:Name="dgIncidentEventList" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="1" Width="280"
+                  Height="200" Margin="10,0,10,0" VerticalAlignment="bottom" Grid.ColumnSpan="1" IsReadOnly="True"/>
+        <Button x:Name="btnCreateIncidentEvent" Grid.Row="3" Grid.Column="1"  Height="20" Width="150"
+                HorizontalAlignment="Right" Margin="0,0,95,10" Click="btnCreateIncidentEvent_Click">Create Incident Event</Button>
+
+        <Button x:Name="btnEditIncidentEvent" Grid.Row="3" Grid.Column="0"  Height="20" Width="150"
+                HorizontalAlignment="Right" Margin="0,0,95,10" Click="btnEditIncidentEvent_Click">Edit Incident Event</Button>
+
+
+        <Button x:Name="btnCancel" Grid.Row="3" Height="20" Width="110"
+                VerticalAlignment="Bottom" Margin="20" Grid.ColumnSpan="2" Click="btnCancel_Click">Cancel</Button>
+    </Grid>
+</Page>

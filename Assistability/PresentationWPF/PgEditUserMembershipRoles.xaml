@@ -1,0 +1,38 @@
+﻿<Page x:Class="PresentationWPF.PgEditUserMembershipRoles"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PresentationWPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PgEditUserMembershipRoles">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85"></RowDefinition>
+            <RowDefinition Height="185"></RowDefinition>
+            <RowDefinition Height="85" ></RowDefinition>
+
+            <RowDefinition></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblGroupMembers" Content="Change User Roles" FontSize="35" 
+               HorizontalAlignment="Center" VerticalContentAlignment="Center"
+               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"></Label>
+
+        <ListBox IsEnabled="True" x:Name="lstAssignedRoles" Grid.Row="1"  MouseDoubleClick="lstAssignedRoles_MouseDoubleClick" />
+        <ListBox IsEnabled="True" x:Name="lstUnassignedRoles" Grid.Row="1" Grid.Column="1"  MouseDoubleClick="lstUnassignedRoles_MouseDoubleClick"/>
+        <Button x:Name="btnSave" Margin="5 5 10 5" 
+               HorizontalAlignment="Right" Width="100" Height="100" Grid.Column="0"
+               Grid.Row="4" Click="btnSave_Click" >Save Roles</Button>
+        <Button x:Name="btnCancel" Margin="5 5 10 5"  Grid.Column="1"
+               HorizontalAlignment="Left" Width="100" Height="100"
+               Grid.Row="9" Click="btnCancel_Click">Cancel</Button>
+
+    </Grid>
+</Page>

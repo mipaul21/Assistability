@@ -1,0 +1,37 @@
+﻿@model PresentationMVC.Models.GroupMemberListViewModel
+@switch (Model.FirstList.Count + Model.SecondList.Count)
+{
+    case 0:
+        // User does not belong to a group with any other members
+        break;
+    default:
+        <div class="grouplist row col-md-9">
+            @Html.Label(Model.FirstListRole)
+            @foreach (var user in Model.FirstList)
+            {
+                @Html.ActionLink(@Html.DisplayFor(modelItem => user.FirstName) + " " + @Html.DisplayFor(modelItem => user.LastName), "ResolveSelectedGroupMember", "GroupMemberList", new { id = user.UserAccountID  }, new { @class = "btn btn-primary" })
+
+            }
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Add", "RegisterToGroup", "Account", null, new { @class = "float-right btn btn-primary" })
+            }
+
+        </div>
+        <div class="grouplist row col-md-9">
+            @Html.Label(Model.SecondListRole)
+            @foreach (var user in Model.SecondList)
+            {
+                @Html.ActionLink(@Html.DisplayFor(modelItem => user.FirstName) + " " + @Html.DisplayFor(modelItem => user.LastName), "ResolveSelectedGroupMember", "GroupMemberList", new { id = user.UserAccountID }, new { @class = "btn btn-primary" })
+            }
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Add", "RegisterToGroup", "Account", null, new { @class = "float-right btn btn-primary" })
+            }
+        </div>
+        break;
+
+}
+
+
+

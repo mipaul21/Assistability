@@ -1,0 +1,93 @@
+﻿@model IEnumerable<DataStorageModels.Incident>
+
+@{
+    string active = "";
+    if (ViewBag.Active = true)
+    {
+        active = "Active";
+    }
+    else
+    {
+        active = "Inactive";
+    }
+    ViewBag.Title = ViewBag.User.FirstName + " " + " " + ViewBag.User.LastName + "'s" + " " + " " + active + " " + " " + "Incidents";
+}
+
+<h2>@ViewBag.Title</h2>
+<h4>@Html.ActionLink("Create an Incident", "Create", "Incident")</h4>
+
+<table class="table" style="width: 100%;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DesiredConsequence)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentEntryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentEditDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentRemovalDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncidentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncidentDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesiredConsequence)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncidentEntryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncidentEditDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncidentRemovalDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { incidentName = item.IncidentName }) |
+                @Html.ActionLink("Deactivate", "Deactivate", new
+           {
+               incidentName = item.IncidentName,
+               incidentDescription = item.IncidentDescription,
+               desiredConsequence = item.DesiredConsequence,
+               incidentEntryDate = item.IncidentEntryDate,
+               incidentEditDate = item.IncidentEditDate,
+               incidentRemovalDate = DateTime.Now,
+
+           }) |
+                @Html.ActionLink("Incident Events","IncidentEvents" , "IncidentEvent", new { incidentName = item.IncidentName }, null)
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @{
+        @Html.ActionLink("Inactive Incidents", "IncidentsByActive", new
+        {
+            activeInactive = !ViewBag.Active
+        })
+    }
+</p>
+

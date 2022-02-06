@@ -1,0 +1,54 @@
+﻿@model DataStorageModels.RoutineStep
+
+@{
+    ViewBag.Title = "CreateRoutineStep";
+}
+
+<h2>Create Routine Step</h2>
+
+
+@using (Html.BeginForm("AddRoutineStep", "Routine", FormMethod.Post, new { @class = "form-horizontal", role = "form" })) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal" style="display:inline-block">
+        <h4>RoutineStep</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div >
+            <div >
+                @Html.HiddenFor(model => model.RoutineName, Model.RoutineName)
+            </div>
+        </div>
+
+        <div class="form-group"">
+            @Html.LabelFor(model => model.RoutineStepName, htmlAttributes: new { @class = "control-label col-md-2 ", @style = "width: 37.5%; text - align: left" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RoutineStepName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RoutineStepName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group"">
+            @Html.LabelFor(model => model.RoutineStepDescription, htmlAttributes: new { @class = "control-label col-md-2", @style = "width: 47%; text - align: left" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RoutineStepDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RoutineStepDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "RoutineSteps", new { Name = Model.RoutineName })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

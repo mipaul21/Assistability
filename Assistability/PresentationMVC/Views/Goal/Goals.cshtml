@@ -1,0 +1,34 @@
+﻿@model DataStorageModels.UserAccount
+
+@{
+    ViewBag.Title = Model.FirstName + " " + Model.LastName + "'s Goals Page";
+}
+@Html.Action("GroupMemberList", "GroupMemberList")
+
+<div class="row ">
+    <h2>Goals Page</h2>
+
+    <div class="btn-group" role="group" aria-label="Habitual Goals" style="margin-left: 2%; ">
+        <h3>Habitual Goals</h3>
+        <button type="button" class="btn btn-secondary">@Html.ActionLink("Create Habitual Goal", "CreateHabGoal", "Goal")</button>
+        <button type="button" class="btn btn-secondary">@Html.ActionLink("View Active Habitual Goals", "ViewActiveHabGoals", "Goal")</button>
+        <button type="button" class="btn btn-secondary">@Html.ActionLink("View All Habitual Goals", "ViewHabGoals", "Goal")</button>
+    </div>
+    <br />
+
+    <div class="btn-group" role="group" aria-label="Attainment Goals" style="margin-left: 2%; ">
+        <h3>Attainment Goals</h3>
+        <button type="button" class="btn btn-secondary">@Html.ActionLink("Create Attainment Goal", "CreateAttGoal", "Goal")</button>
+        <button type="button" class="btn btn-secondary">@Html.ActionLink("View Active Attainment Goals", "ViewActiveAttGoal", "Goal")</button>
+        <button type="button" class="btn btn-secondary">@Html.ActionLink("View All Attainment Goals", "ViewAttGoal", "Goal")</button>
+    </div>
+    <br />
+
+    <div class="btn-group" role="group" aria-label="Extinction Goals" style="margin-left: 2%; ">
+        <h3>Extinction Goals</h3>
+        <button type="button" class="btn btn-secondary">@Html.ActionLink("Create Extinction Goal", "CreateExtGoal", "Goal")</button>
+        <button type="button" class="btn btn-secondary">@Html.ActionLink("View Active Extinction Goals", "ViewActiveExtGoal", "Goal")</button>
+        <button type="button" class="btn btn-secondary">@Html.ActionLink("View All Extinction Goals", "ViewExtGoal", "Goal")</button>
+    </div>
+    <br />
+</div>

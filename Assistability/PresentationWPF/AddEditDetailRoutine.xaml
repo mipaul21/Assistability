@@ -1,0 +1,93 @@
+﻿<Page x:Class="PresentationWPF.AddEditDetailRoutine"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:PresentationWPF"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="400"
+      Title="AddEditDetailRoutine" Initialized="Page_Initialized" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblRoutineName" Grid.Row="0" Grid.Column="1" BorderThickness="0"
+               FontSize="30" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"
+               Height="60">Routine Name: </Label>
+        <TextBox x:Name="txtRoutineName" Grid.Row="0" Grid.Column="2" BorderThickness="1"
+               FontSize="30" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                 Height="60"></TextBox>
+        <Label x:Name="lblRoutineDescription" Grid.Row="1" Grid.Column="1" BorderThickness="0"
+               FontSize="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"
+               Height="60">Routine Description: </Label>
+        <TextBox x:Name="txtRoutineDescription" Grid.Row="1" Grid.Column="2" BorderThickness="1"
+               FontSize="24" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                 Height="60" MaxLength="150"></TextBox>
+        <Button x:Name="btnEditRoutineDescription" Grid.Row="2" Grid.Column="2"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Height="30px" Width="60px" Click="btnEditRoutineDescription_Click">Edit</Button>
+        <Button x:Name="btnSaveRoutineDescription" Grid.Row="2" Grid.Column="2"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Height="30px" Width="60px" Margin="60, 0" Click="btnSaveRoutineDescription_Click">Save</Button>
+        <Label x:Name="lblEntryDate" Grid.Row="3" Grid.Column="1" BorderThickness="0"
+               HorizontalContentAlignment="Right" VerticalContentAlignment="Center"
+               Height="30">Entry Date: </Label>
+        <TextBox x:Name="txtEntryDate" Grid.Row="3" Grid.Column="2" BorderThickness="0"
+               HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                 Height="30"></TextBox>
+        <Label x:Name="lblEditDate" Grid.Row="4" Grid.Column="1" BorderThickness="0"
+               HorizontalContentAlignment="Right" VerticalContentAlignment="Center"
+               Height="30">Last Edited: </Label>
+        <TextBox x:Name="txtEditDate" Grid.Row="4" Grid.Column="2" BorderThickness="0"
+               HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                 Height="30"></TextBox>
+        <Label x:Name="lblRemovalDate" Grid.Row="5" Grid.Column="1" BorderThickness="0"
+               HorizontalContentAlignment="Right" VerticalContentAlignment="Center"
+               Height="30">Removed:</Label>
+        <TextBox x:Name="txtRemovalDate" Grid.Row="5" Grid.Column="2" BorderThickness="0"
+               HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                 Height="30"></TextBox>
+        <Button x:Name="btnActive" Grid.Row="6" Grid.Column="1"  Grid.ColumnSpan="2"
+               HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                 Height="30" Width="60" Click="btnActive_Click"></Button>
+
+        <DataGrid x:Name="dgRoutineSteps" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="4" AutoGenerateColumns="False" MaxWidth="400"
+                  ItemsSource="{Binding}" CanUserAddRows="False" SelectionChanged="dgRoutineSteps_SelectionChanged" MouseDoubleClick="dgRoutineSteps_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding RoutineStepOrderNumber}"
+                                    IsReadOnly="True">
+                    <DataGridTextColumn.Header>Order</DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding RoutineStepName}"
+                                    IsReadOnly="True">
+                    <DataGridTextColumn.Header>Name</DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding RoutineStepDescription}"
+                                    IsReadOnly="True">
+                    <DataGridTextColumn.Header>Description</DataGridTextColumn.Header>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnAddRoutineStep" Grid.Row="7" Grid.Column="3" Click="btnAddRoutineStep_Click">Add Step</Button>
+        <Button x:Name="btnMoveStepOrderUp" Grid.Row="8" Grid.Column="3" Click="btnMoveStepOrderUp_Click">Move Up</Button>
+        <Button x:Name="btnMoveStepOrderDown" Grid.Row="9" Grid.Column="3" Click="btnMoveStepOrderDown_Click">Move Down</Button>
+    </Grid>
+</Page>

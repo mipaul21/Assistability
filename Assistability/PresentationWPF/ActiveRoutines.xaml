@@ -1,0 +1,39 @@
+﻿<Page x:Class="PresentationWPF.ActiveRoutines"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PresentationWPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="400"
+      Title="ActiveRoutines" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.Resources>
+            
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label x:Name="lblGreeting" FontSize="20" HorizontalContentAlignment="Center">Double click a routine to complete it</Label>
+        <DataGrid x:Name="dgActiveRoutines" AutoGenerateColumns="False" Grid.Row="1"
+                  Margin="10,0,10,0"
+                  IsReadOnly="True" CanUserAddRows="False" MouseDoubleClick="dgActiveRoutines_MouseDoubleClick">
+            <DataGrid.CellStyle >
+                <Style TargetType="DataGridCell">
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Routine Name" Width="Auto"
+                                    Binding="{Binding Name}">
+                    
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Routine Description" Width="Auto"
+                                    Binding="{Binding Description}">
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

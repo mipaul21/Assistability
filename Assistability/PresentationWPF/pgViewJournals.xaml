@@ -1,0 +1,48 @@
+﻿<Page x:Class="PresentationWPF.PgViewJournals"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PresentationWPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="pgViewJournals">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label x:Name="lblJournalsPage" Content="Journals" FontSize="45" HorizontalAlignment="Center"
+               Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3"></Label>
+
+        <DataGrid x:Name="dgJournalDisplay" Grid.Row="2" Grid.RowSpan="3" Grid.Column="2"
+                  Grid.ColumnSpan="5" IsReadOnly="True" MouseDoubleClick="dgJournalDisplay_MouseDoubleClick" ></DataGrid>
+
+        <Button x:Name="btnNewJournal" Grid.Row="5" Grid.Column="3"
+                            Margin="5 20" Click="btnNewJournal_Click" >New Journal</Button>
+
+        <Button x:Name="btnEditJournal" Grid.Row="5" Grid.Column="5"
+                            Margin="5 20" Click="btnEditJournal_Click" >Edit A Journal</Button>
+
+        <Label x:Name="lblError" Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="3" VerticalContentAlignment="Center" FontSize="15" 
+               HorizontalContentAlignment="Center" VerticalAlignment="Center"
+               Visibility="Hidden" Foreground="Red">Select a journal to edit</Label>
+    </Grid>
+</Page>

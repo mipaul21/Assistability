@@ -1,0 +1,56 @@
+﻿@model PresentationMVC.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>User Details</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal" style="display:inline-block">
+
+
+
+        <dt>
+            @Html.DisplayName("First Name")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Last Name")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayName("Email")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Username")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>&nbsp;</dt>
+        <dd>&nbsp;</dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit User", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to User List", "Index")
+</p>
+

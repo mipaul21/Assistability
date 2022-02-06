@@ -1,0 +1,34 @@
+﻿@model IEnumerable<DataStorageModels.Routine>
+
+@if (Model.Count() > 0)
+{
+    // User has more than one incomplete routine for the day
+    <table class="table">
+        <tr>
+            <th>
+                Routine Name
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @Html.ActionLink("Complete", "Index", new { Name = item.Name })
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+
+    // User has no routines or has completed all of their routines for this day
+    <h2>Congratulations!</h2>
+    <h4>All Routines are Complete!</h4>
+}

@@ -1,0 +1,58 @@
+﻿@model DataStorageModels.JournalEntry
+
+@{
+    ViewBag.Title = "Entry Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal" style="display:inline-block">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JournalID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JournalID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JournalEntryBody)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JournalEntryBody)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JournalEntryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JournalEntryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JournalEditDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JournalEditDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "UpdateEntry", new
+    {
+        journalName = Model.JournalID,
+                        dateCreated = Model.JournalEntryDate
+    }) |
+    @Html.ActionLink("Delete", "DeleteEntry",
+    new { journalName = Model.JournalID, body = Model.JournalEntryBody, 
+        dateCreated = Model.JournalEntryDate }) | 
+    @Html.ActionLink("Back to List", "JournalEntries",
+    new { userIDClient = Model.UserIDClientJournal, journalName = Model.JournalID })
+</p>

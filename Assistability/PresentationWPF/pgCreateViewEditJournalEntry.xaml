@@ -1,0 +1,37 @@
+﻿<Page x:Class="PresentationWPF.pgCreateViewEditJournalEntry"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PresentationWPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="pgCreateViewEditJournalEntry" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="lblJournalPourpuse" FontSize="20">CEV Journal Entry</Label>
+        <Label x:Name="lblJournalTitle" FontSize="20" Grid.Row="1" 
+               Margin="10">Title:</Label>
+        <TextBox x:Name="txtJournalTitle" Grid.Row="1" FontSize="20" 
+                 Height="40" Width="300" VerticalContentAlignment="Center"
+                 HorizontalContentAlignment="Center" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Margin="80, 10" IsReadOnly="True">JournalTitle</TextBox>
+        <Label x:Name="lblJournalEntry" FontSize="20" Grid.Row="1" 
+               VerticalAlignment="Bottom">Journal:</Label>
+        <TextBox x:Name="txtJournalEntry" FontSize="15" 
+                 Grid.Row="2" IsReadOnly="True"></TextBox>
+        <Button x:Name="btnJournalEntryEdit" FontSize="15" Grid.Row="3" 
+                Height="30" Width="80" HorizontalAlignment="Center" 
+                Click="btnJournalEntryEdit_Click">Edit</Button>
+        <Button x:Name="btnJournalEntryDelete" FontSize="15" Grid.Row="3" 
+                Height="30" Width="80" HorizontalAlignment="Center" 
+                Margin="100, 0, 0, 0" Click="btnJournalEntryDelete_Click" >Delete</Button>
+    </Grid>
+</Page>

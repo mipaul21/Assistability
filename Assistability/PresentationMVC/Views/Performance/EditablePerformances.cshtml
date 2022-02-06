@@ -1,0 +1,68 @@
+﻿@model IEnumerable<DataStorageModels.Performance>
+
+@{
+    ViewBag.Title = "EditablePerformances";
+}
+
+<h2>Editable Performances</h2>
+<h4>@Html.ActionLink("Manage Performances", "Performances", "Performance") &nbsp;|&nbsp; @Html.ActionLink("Create A Performance", "Create", new { SelectedId = ViewBag.User.UserAccountID })</h4>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PerformanceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PerformanceDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerformanceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerformanceDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @{
+                    if (item.Active)
+                    {
+                        @Html.ActionLink("Deactivate", "ActiveDeactive", new
+                        {
+                       performanceName = item.PerformanceName,
+                            clientId = item.UserID_client,
+                       oldActive = item.Active,
+                            newActive = !item.Active
+                        })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Activate", "ActiveDeactive", new
+                        {
+                       performanceName = item.PerformanceName,
+                            clientId = item.UserID_client,
+                       oldActive = item.Active,
+                            newActive = !item.Active
+                        })
+                    }
+                }
+                | @Html.ActionLink("Edit", "PopulateEdit", new
+                {
+                    performanceName = item.PerformanceName,
+               clientId = item.UserID_client
+                })
+            </td>
+        </tr>
+    }
+
+</table>

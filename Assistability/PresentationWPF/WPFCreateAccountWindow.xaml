@@ -1,0 +1,67 @@
+﻿<Window x:Class="PresentationWPF.WPFCreateAccountWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PresentationWPF"
+        mc:Ignorable="d"
+        Title="WPFCreateAccountWindow" Height="450" Width="800" Icon="/images/favicon.ico">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/images/background-image-swoosh.png"  Stretch="Fill"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblFirstName" Grid.Row="1" HorizontalAlignment="center" 
+               VerticalAlignment="Center">First Name:</Label>
+        <TextBox x:Name="txtFirstName" Grid.Row="1" Grid.Column="1" 
+                 VerticalAlignment="Center"></TextBox>
+
+        <Label x:Name="lblLastName" Grid.Row="2" HorizontalAlignment="center" 
+               VerticalAlignment="Center">Last Name:</Label>
+        <TextBox x:Name="txtLastName" Grid.Row="2" Grid.Column="1" 
+                 VerticalAlignment="Center"></TextBox>
+
+        <Label x:Name="lblUsername" Grid.Row="3" HorizontalAlignment="center" 
+               VerticalAlignment="Center">Username:</Label>
+        <TextBox x:Name="txtUsername" Grid.Row="3" Grid.Column="1" 
+                 VerticalAlignment="Center"></TextBox>
+
+        <Label x:Name="lblEmail" Grid.Row="4" HorizontalAlignment="center" 
+               VerticalAlignment="Center">Email:</Label>
+        <TextBox x:Name="txtEmail" Grid.Row="4" Grid.Column="1" 
+                 VerticalAlignment="Center"></TextBox>
+
+        <Label x:Name="lblPassword" Grid.Row="5" HorizontalAlignment="center" 
+               VerticalAlignment="Center">Password:</Label>
+        <PasswordBox x:Name="txtPassword" Grid.Row="5" Grid.Column="1" 
+                 VerticalAlignment="Center"></PasswordBox>
+
+        <Label x:Name="lblReEnterPassword" Grid.Row="6" HorizontalAlignment="center" 
+               VerticalAlignment="Center">Re-enter Password:</Label>
+        <PasswordBox x:Name="txtReEnterPassword" Grid.Row="6" Grid.Column="1" 
+                 VerticalAlignment="Center"></PasswordBox>
+
+        <Button x:Name="btnCancleAddingUserAccount" Grid.Column="1" Grid.Row="7" 
+                Height="30" Width="70" HorizontalAlignment="Left" 
+                Margin="30 0" Click="btnCancleAddingUserAccount_Click">Cancel</Button>
+
+        <Button x:Name="btnAddUserAccount" Grid.Column="0" Grid.Row="7" 
+                Height="30" Width="90" HorizontalAlignment="Right" 
+                Margin="30 0" Click="btnAddUserAccount_Click">Create Account</Button>
+    </Grid>
+</Window>
